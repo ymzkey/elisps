@@ -1,10 +1,21 @@
-;;load path
-(setq load-path
-      (append
-       (list
-	(expand-file-name "~/elisps/ruby_mode")
-	)
-       load-path))
+(setq projects
+      `(
+        "ruby_mode" 
+	"haskell_mode"
+        )
+      )
 
-;;load
-(load "~/elisps/ruby_mode/set_ruby_mode.el")
+(while projects
+  (setq path_project (concat "~/elisps/" (car projects)))
+  ;;add load-path
+  (setq load-path
+	(append
+	 (list
+	  (expand-file-name path_project)
+	  )
+	 load-path))
+  ;;load setup.el
+  (load (concat (concat path_project "/") "setup.el"))
+  ;;next
+  (setq projects (cdr projects))
+  )
