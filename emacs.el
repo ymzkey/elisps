@@ -1,1 +1,1 @@
-(load "~/.elisps/loadfiles.el")
+(load "~/elisps/loadfiles.el")
